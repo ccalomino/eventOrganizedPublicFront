@@ -1,0 +1,228 @@
+  
+  
+  <div class="popup-container" [ngClass]="{'popup-dark-theme': darkTheme}" *ngIf="modo === 1">
+    <div class="popup-close" (click)="closePopup()">&#10006;</div>
+    
+    <div class="column-container">
+
+      <div  *ngIf="modoEdicion" class="column-container">
+        <div class="flex-column">
+          <div class="popup-image" style="margin: 10px auto; margin-top: 60px;">
+            <img *ngIf="selectedImage" [src]="getImageUrl()" alt="Imagen">
+            <img *ngIf="!selectedImage" [src]="additionalDataVinoImg.img ? 'data:image/jpeg;base64,' + additionalDataVinoImg.img : 'assets/img/vinoGenerico.jpg'" alt="Imagen">
+            <input type="file" (change)="onFileSelected($event)" style="display: none" #fileInput>
+            <button class="edit-image-button" (click)="fileInput.click()">
+              <i class="fas fa-edit"></i>
+            </button>
+          </div>
+        </div>
+        <div class="flex-column">
+          <div class="popup-content">
+            <p class="popup-category"><strong>Nombre:</strong> <input type="text" class="long-input" [(ngModel)]="additionalDataVino.nombreVino"></p>
+            <p class="popup-category"><strong>Variedad:</strong> <input type="text" [(ngModel)]="additionalDataVino.variedad"></p>
+            <p class="popup-category"><strong>Bodega:</strong> <input type="text" [(ngModel)]="additionalDataVino.bodega"></p>
+            <p class="popup-category"><strong>Clasificación:</strong> <input type="text" [disabled]="true" [(ngModel)]="additionalDataVino.clasificacion"></p>
+            <p class="popup-category"><strong>Año:</strong> <input type="text" [(ngModel)]="additionalDataVino.anno"></p>
+            <p class="popup-description">
+              <strong>Descripción:</strong>
+              <textarea class="custom-textarea" [disabled]="true" [(ngModel)]="additionalDataVino.descripcionUva"></textarea>
+            </p>
+            <p class="popup-category"><strong>Tiempo en barrica:</strong> <input type="text" [disabled]="true" [(ngModel)]="additionalDataVino.tiempo_barrica"></p>
+            <p class="popup-category"><strong>Tiempo en botella:</strong> <input type="text" [disabled]="true" [(ngModel)]="additionalDataVino.tiempo_botella"></p>
+            <p class="popup-category"><strong>Tiempo total:</strong> <input type="text" [disabled]="true" [(ngModel)]="additionalDataVino.tiempo_total"></p>
+          </div> 
+
+          <div class="popup-actions">
+            <button class="save-button" *ngIf="modoEdicion" (click)="guardarCambiosVino()">
+              <i class="fas fa-save"></i>Guardar
+            </button>
+          </div>    
+        </div>
+      </div>
+
+
+        
+      <div  *ngIf="!modoEdicion" class="column-container">
+          <div class="flex-column">
+            <div class="popup-image">
+              <img [src]="additionalDataVinoImg.img ? 'data:image/jpeg;base64,' + additionalDataVinoImg.img : 'assets/img/vinoGenerico.jpg'" alt="Imagen">
+            </div>
+          </div>
+          <div class="flex-column">
+            <h1 class="popup-title">{{ additionalDataVino.nombreVino }}</h1>
+            <p class="popup-category"><strong>Variedad:</strong> {{ additionalDataVino.variedad }}</p>
+            <p class="popup-category"><strong>Bodega:</strong> {{ additionalDataVino.bodega }}</p>
+            <p class="popup-category"><strong>Clasificación:</strong> {{ additionalDataVino.clasificacion }}</p>
+            <p class="popup-category"><strong>Año:</strong> {{ additionalDataVino.anno }}</p>
+            <p class="popup-category"><strong>Descripción:</strong> {{ additionalDataVino.descripcionUva }}</p>
+            <p class="popup-category"><strong>Tiempo en barrica:</strong> {{ additionalDataVino.tiempo_barrica }}</p>
+            <p class="popup-category"><strong>Tiempo en botella:</strong> {{ additionalDataVino.tiempo_botella }}</p>
+            <p class="popup-category"><strong>Tiempo en total:</strong> {{ additionalDataVino.tiempo_total }}</p>
+          </div>
+        </div>
+          
+    </div>
+    
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <div class="popup-container" [ngClass]="{'popup-dark-theme': darkTheme}" *ngIf="modo === 2">
+
+    <div class="popup-close" (click)="closePopup()">&#10006;</div>
+
+    <div *ngIf="modoEdicion" class="column-container">
+      <div  class="column-container">
+        <div class="flex-column">
+          <div class="popup-image">
+            <img *ngIf="selectedImage" [src]="getImageUrl()" alt="Imagen">
+            <img *ngIf="!selectedImage" [src]="additionalData.imagen ? 'data:image/jpeg;base64,' + additionalData.imagen : 'assets/img/platoGenerico.jpg'" alt="Imagen">
+            <input type="file" (change)="onFileSelected($event)" style="display: none" #fileInput>
+            <button class="edit-image-button" (click)="fileInput.click()">
+              <i class="fas fa-edit"></i>
+            </button>
+          </div>
+        </div>
+        <div class="flex-column">
+          <div class="popup-content">
+            <p class="popup-category"><strong>Nombre:</strong> <input type="text" class="long-input" [(ngModel)]="additionalData.nombre"></p>
+            <p class="popup-category"><strong>Categoría:</strong> <input type="text" [(ngModel)]="additionalData.categoria"></p>
+            
+            <p class="popup-description">
+              <strong>Descripción:</strong>
+              <textarea class="custom-textarea" [(ngModel)]="additionalData.descripcion"></textarea>
+            </p>
+
+            <p class="popup-price"><strong>Precio:</strong> <input type="number" [(ngModel)]="additionalData.precio"></p>
+          
+
+
+
+
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-actions">
+        <button class="save-button" (click)="guardarCambios()">
+          <i class="fas fa-save"></i>Guardar
+        </button>
+      </div>
+
+    </div>
+
+
+    <div *ngIf="!modoEdicion" class="column-container">
+      <div  class="column-container">
+        <div class="flex-column">
+          <div class="popup-image" *ngIf="!modoEdicion">
+            <img [src]="additionalData.imagen ? 'data:image/jpeg;base64,' + additionalData.imagen : 'assets/img/platoGenerico.jpg'" alt="Imagen">
+          </div>
+        </div>
+        <div class="flex-column">
+          <h1 class="popup-title">{{ additionalData.nombre }}</h1>
+          <p class="popup-category"><strong>Categoría:</strong> {{ additionalData.categoria }}</p>
+          <p class="popup-description"><strong>Descripción:</strong> {{ additionalData.descripcion }}</p>
+          <p class="popup-price" *ngIf="additionalData.precio != 0"><strong>Precio:</strong> {{ additionalData.precio }}</p>
+          
+          <p class="popup-description" *ngIf="additionalData.ingredientes1"><strong>Ingredientes:</strong>
+          <ul *ngIf="additionalData.ingredientes1">
+            <li class="popup-description" *ngFor="let ingrediente of additionalData.ingredientes1.split('\n')">
+              {{ ingrediente }}
+            </li>
+          </ul> 
+          
+          <p class="popup-description" *ngIf="additionalData.instrucciones"><strong>Instrucciones:</strong>
+          <ul *ngIf="additionalData.instrucciones">
+            <li class="popup-description" *ngFor="let instruccion of additionalData.instrucciones.split('\n')">
+              {{ instruccion }}
+            </li>
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="popup-container" [ngClass]="{'popup-dark-theme': darkTheme}" *ngIf="modo === 3">
+
+    <div class="popup-close" (click)="closePopup()">&#10006;</div>
+
+    <div *ngIf="modoEdicion" class="column-container">
+
+      <div  class="column-container">
+        <div class="flex-column"> 
+        </div>    
+        <div class="flex-column">       
+        </div>
+      </div>
+
+      <div class="popup-actions">   
+      </div>
+    </div>
+
+
+    <div class="column-container">
+      <div  class="column-container">
+        <div class="flex-column">
+
+          <div class="popup-image">
+            <img [src]="additionalDataMaridaje.plato.imagen ? 'data:image/jpeg;base64,' + additionalDataMaridaje.plato.imagen : 'assets/img/platoGenerico.jpg'" alt="Imagen">
+          </div>
+
+          <h1 class="popup-descripcion">{{ additionalDataMaridaje.descripcion}}</h1>
+
+
+        </div>
+        <div class="flex-column">
+          <h1 class="popup-title">{{ additionalDataMaridaje.plato.nombre}}</h1>
+
+          <p class="popup-category"><strong>Descripción:  </strong> {{ additionalDataMaridaje.plato.descripcion }}</p>
+
+          
+
+          <div class="maridaje-row" *ngIf="modoEdicion">
+            <div class="maridaje-row-left">
+              <p class="popup-category">
+                <strong>Vino: </strong>
+                <select id="comboVinos" (change)="mostrarDatosVino()" *ngIf="listaVinosCombo" [(ngModel)]="additionalDataMaridaje.vino">
+                  <option value="">Seleccionar vino</option>
+                  <option *ngFor="let vino of listaVinosCombo" [ngValue]="vino">{{vino.nombre}}</option>
+                </select>
+              </p>
+            </div>
+
+            <div class="maridaje-row-right" *ngIf="modoEdicion">
+              <button class="save-button-combo" (click)="guardarMaridaje()">
+                <i class="fa fa-save"></i> Guardar
+              </button>
+            </div>
+          </div>
+
+          <div class="maridaje-row">
+            <div class="maridaje-info">
+              <p class="popup-category"><strong>Vino: </strong> {{ additionalDataMaridaje.vino.nombre }}</p>
+              <p class="popup-category"><strong>Uva: </strong> {{ additionalDataMaridaje.vino.uva.nombre }}</p>
+              <p class="popup-price"><strong>Bodega: </strong> {{ additionalDataMaridaje.vino.bodega }}</p>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

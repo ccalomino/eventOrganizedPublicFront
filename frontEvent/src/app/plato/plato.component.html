@@ -1,0 +1,20 @@
+<h2 class="titulo">Lista de platos</h2>
+<div class="contenido" *ngIf="listaCargadaPlatos">
+  <ul>
+    <li *ngFor="let plato of platoData" 
+        class="item hovered plato-item" 
+        (click)="openPopupPlato(plato.id,false)">
+        <div class="left-content">  
+          <span class="campo">Categoría:</span> {{ plato.categoria }}<br>
+          <span class="campo">Nombre:</span> {{ plato.nombre }}<br>
+        </div>
+        <div class="right-content">
+            <span class="icons">
+              <i class="fas fa-edit" (click)="openPopupPlatoEdicion(plato.id,true);$event.stopPropagation()"></i>
+              <span class="icon-space"></span>
+              <i class="fas fa-trash-alt" (click)="openPopupPlatoEliminar(plato.id,true);$event.stopPropagation()"></i>
+            </span>
+        </div>
+    </li>
+  </ul>
+</div>

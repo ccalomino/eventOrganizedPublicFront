@@ -1,0 +1,356 @@
+
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+/* ----------------------------------------- */
+
+.menu {
+  background-color: #990000;
+  padding: 10px;
+  position: relative; 
+  background-image: url('./../assets/img/menu4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh; /* Asegura que el menú ocupe al menos el 100% de la altura de la ventana */
+}
+
+.menu-img {
+  width: 100%;
+  height: 200px; /* Ajusta el tamaño de la imagen según tus necesidades */
+  object-fit: cover;
+}
+
+
+
+.titulo {
+  color: #ffffff;
+  font-size: 44px;
+  margin-bottom: 10px;
+  margin-top:20px;
+}
+
+.opciones {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.opciones li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.opciones li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #800000;
+}
+
+.opciones li a:hover {
+  background-color: #5a0000;
+  color: #ffffff;
+}
+
+
+.left-content {
+  float: left;
+}
+
+.right-content {
+  float: right;
+}
+
+.imagen-menu {
+  float: right;
+  margin-left: 10px;
+  /* Ajusta el tamaño de la imagen según sea necesario */
+  width: 40px;
+  height: 40px;
+}
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+
+
+
+.popup-container {
+  position: relative;
+  background-color: #550000;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+.popup-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.popup-descripcion {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.popup-content p,
+.popup-content h1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-content p strong {
+  margin-right: 10px;
+}
+
+
+
+.popup-button {
+  background-color: #550000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.popup-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}S
+
+
+.popup-image img {
+  opacity: 0.7;
+}
+
+.popup-details {
+  flex: 2;
+}
+
+
+
+.custom-textarea {
+  width: 360px;
+  height: 100px; /* Ajusta la altura deseada */
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.long-input{
+  width: 200px;
+}
+
+
+.maridaje-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.maridaje-row-left {
+  flex: 1;
+}
+
+
+
+/* ----------------------------------------- */
+
+.popup-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.popup-image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+
+.popup-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+
+.edit-image-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.edit-image-button:hover {
+  color: #cac2c2;
+}
+
+.edit-image-button i {
+  font-size: 18px;
+}
+
+
+/* ----------------------------------------- */
+
+.save-button {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+  
+  .save-button i {
+  margin-right: 5px;
+  }
+  
+  .save-button span {
+  margin-right: 5px;
+  }
+
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+
+
+.contenido {
+  background-color: rgba(68, 0, 0, 0.5); 
+  padding: 10px;
+  max-height: 500px; 
+  overflow-y: auto;
+}
+
+.contenido ul {
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(100, 0, 0, 0.4);
+  color: #ffffff;
+  height: 100%;
+}
+
+.plato-item{
+  height: 60px;
+}
+
+.campo {
+  font-weight: bold;
+  color: #555;
+}
+
+.item:hover {
+  background-color: rgba(110, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.titulo:hover {
+  color: #ffffff;
+  font-size: 44px;
+  margin-bottom: 10px;
+  margin-top:20px;
+}
+
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.icon-space {
+  display: inline-block;
+  width: 10px; /* ajusta el tamaño del espacio según tus necesidades */
+}
+
+/* ------------------------------ LISTA DE VINOS CON LA IMAGEN EN EL MEDIO ------------------------------ */
+/* ------------------------------------------------------------------------------------------------------ */
+
+.column-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  width: 400px;
+  margin: 10px;
+}
+
+.flex-columnChico {
+  width: 250px;
+  margin: 10px;
+}
+
+.flex-columnDatos {
+  width: 400px;
+  margin: 10px;
+  margin-top: 60px;
+  margin-left: 40px;
+}
+
+.imgPlato {
+  width: 240px;
+  height: 200px;
+}
+
+.imgVino {
+  width: 150px;
+  height: 200px;
+}
+
+.flex-row {
+  width: 400px;
+}
+
+.vino-imagen {
+  width: 400px;
+  height: auto;
+}
+
+/* ----------------------------------------- */
+/* ----------------------------------------- */
+

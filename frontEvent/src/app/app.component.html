@@ -1,0 +1,60 @@
+<nav class="menu">
+  
+  <div class="menu-img">
+ 
+    <h2 class="titulo">Menú</h2>
+    
+  <ul class="opciones">
+    <li>
+      <a mat-button [matMenuTriggerFor]="vinosMenu">Vinos</a>
+      <mat-menu #vinosMenu="matMenu">
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menu4.jpg'); toggleSubMenu('vinos', 'listado')">Listado</button>
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menu4.jpg'); toggleSubMenu('vinos', 'agregar')">Agregar</button>
+      </mat-menu>
+    </li>
+    <li>
+      <a mat-button [matMenuTriggerFor]="platosMenu">Platos</a>
+      <mat-menu #platosMenu="matMenu">
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menuCarne1.jpg'); toggleSubMenu('platos', 'listado')">Listado</button>
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menuCarne1.jpg'); toggleSubMenu('platos', 'agregar')">Agregar</button>
+      </mat-menu>
+    </li>
+    <li>
+      <a mat-button [matMenuTriggerFor]="maridajesMenu">Maridajes</a>
+      <mat-menu #maridajesMenu="matMenu">
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menu.jpeg'); toggleSubMenu('maridajes', 'listado')">Listado</button>
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menu.jpeg'); toggleSubMenu('maridajes', 'agregar')">Agregar</button>
+      </mat-menu>
+    </li>
+    <!-- 
+    <li>
+      <a mat-button [matMenuTriggerFor]="recetasMenu">Recetas</a>
+      <mat-menu #recetasMenu="matMenu">
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menu.jpeg'); toggleSubMenu('recetas', 'listado')">Listado</button>
+        <button mat-menu-item (click)="cambiarImagenFondo('./../assets/img/menu.jpeg'); toggleSubMenu('recetas', 'agregar')">Agregar</button>
+      </mat-menu>
+    </li> 
+    <li><a href="#">Reservas</a></li>
+    <li><a href="#">Contacto</a></li>
+    -->
+  </ul>
+
+
+
+  <div *ngIf="mostrarContenidoListaVinos">
+    <app-vino #vinoComponent></app-vino>
+  </div>
+  
+  
+  <div *ngIf="mostrarContenidoListaPlatos">
+    <app-plato #platoComponent></app-plato>
+  </div>
+  
+  
+  <div *ngIf="mostrarContenidoListaMaridajes">
+    <app-maridaje #maridajeComponent></app-maridaje>
+  </div>
+</div>
+
+</nav>
+

@@ -1,0 +1,39 @@
+
+
+<h2 class="titulo">Lista de vinos</h2>
+<div class="contenido" *ngIf="listaCargada">
+  <ul>
+    <li *ngFor="let vino of vinoData" class="item" (click)="openPopupVino(vino.id,false)">
+
+      <div class="column-container">
+
+        <div class="flex-column">
+          <span class="campo">Nombre:</span> {{ vino.nombreVino }}<br>
+          <span class="campo">Tipo:</span> {{ vino.nombre }}<br>
+          <span class="campo">Bodega:</span> {{ vino.bodega }}<br>
+          <span class="campo">Año:</span> {{ vino.anno }}<br>
+          <span class="campo">Clasificación:</span> {{ vino.clasificacion }}
+        </div>
+      
+        <div class="flex-column">
+        <!--  <img [src]="vino.img2 ? 'data:image/jpeg;base64,' + vino.img2 : 'assets/img/vinoGenerico.jpg'" alt="Imagen"> -->
+        </div>
+      
+        <div class="flex-column">
+          <div class="right-content d-flex align-items-center justify-content-start">
+            <span class="icons">
+              <i class="fas fa-edit" (click)="openPopupVinoEdicion(vino.id,true);$event.stopPropagation()"></i>
+              <span class="icon-space"></span>
+              <i class="fas fa-trash-alt" (click)="openPopupVinoEliminar(vino.id,true);$event.stopPropagation()"></i>
+            </span>
+          </div>
+        </div>
+
+      </div>
+      
+      
+    </li>
+  </ul>
+</div>
+
+

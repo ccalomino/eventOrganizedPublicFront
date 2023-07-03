@@ -1,0 +1,40 @@
+<h2 class="titulo">Lista de maridajes</h2>
+<div class="contenido" *ngIf="listaCargadaMaridajes">
+  <ul>
+    <li *ngFor="let maridaje of maridajeData" class="item" (click)="openPopupMaridaje(maridaje.id,false)">
+      <div class="column-container">
+        <div class="flex-columnDatos">
+          <span class="campo">Categoria plato:</span> {{ maridaje.plato.categoria }}<br>
+          <span class="campo">Nombre plato:</span> {{ maridaje.plato.nombre }}<br>
+          <span class="campo">Maridaje con uva:</span> {{ maridaje.vino.uva.nombre }}<br>
+          <span class="campo">Vino como ejemplo:</span> {{ maridaje.vino.nombre }}<br>
+          <span class="campo">Bodega del vino:</span> {{ maridaje.vino.bodega }}  
+        </div>
+  
+        <div class="flex-columnChico">
+          <img class="imgPlato" [src]="maridaje.plato.imagen ? 'data:image/jpeg;base64,' + maridaje.plato.imagen : 'assets/img/platoGenerico.jpg'" alt="Imagen">
+        </div>      
+        
+        <div class="flex-columnChico">
+          <img class="imgVino" [src]="maridaje.vino.img ? 'data:image/jpeg;base64,' + maridaje.vino.img : 'assets/img/vinoGenerico.jpg'" alt="Imagen">
+        </div>
+
+        <div class="flex-columnChico">
+          <div class="right-content d-flex align-items-center justify-content-start">
+            <span class="icons">
+              <i class="fas fa-edit" (click)="openPopupMaridajeEdicion(maridaje.id,true);$event.stopPropagation()"></i>
+              <span class="icon-space"></span>
+              <i class="fas fa-trash-alt" (click)="openPopupMaridajeEliminar(maridaje.id,true);$event.stopPropagation()"></i>
+            </span>
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+
+    </li>
+  </ul>
+</div>
